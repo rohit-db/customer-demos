@@ -44,6 +44,7 @@ comment "Raw user data coming from json files ingested in incremental with Auto 
 
 as select * from cloud_files("/mnt/rb-demo-resources/turbine/incoming-data-json", "json")
 
+
 -- COMMAND ----------
 
 create incremental live table turbine_status_dlt (id int, status string)

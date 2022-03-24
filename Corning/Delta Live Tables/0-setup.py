@@ -8,8 +8,10 @@
 aws_bucket_name = "quentin-demo-resources"
 mount_name = "rb-demo-resources"
 
+
 try:
   dbutils.fs.ls("/mnt/%s" % mount_name)
+  
 except:
   print("bucket isn't mounted, mounting the demo bucket under %s" % mount_name)
   dbutils.fs.mount("s3a://%s" % aws_bucket_name, "/mnt/%s" % mount_name)

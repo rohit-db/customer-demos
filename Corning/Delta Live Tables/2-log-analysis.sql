@@ -9,6 +9,7 @@
 
 -- MAGIC %python
 -- MAGIC dbutils.widgets.text('storage_location', '/Users/rohit_bhagwat_databricks_com/demo', 'Storage Location')
+-- MAGIC 
 -- MAGIC dbutils.widgets.text('db', 'rohit_bhagwat_dlt_demo', 'DLT Database')
 
 -- COMMAND ----------

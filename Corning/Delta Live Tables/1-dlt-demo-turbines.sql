@@ -103,7 +103,7 @@ join (select id, max(status) as status from live.turbine_status_dlt group by 1) 
 
 -- COMMAND ----------
 
-create live table turbine_gold_daily_dlt(
+create live table turbine_gold_daily_dlt1(
   constraint valid_id expect (id is not null) on violation drop row
 )
   tblproperties (
@@ -124,12 +124,12 @@ select id
   , avg(an8) as an8
   , avg(an9) as an9
   , avg(speed) as speed
-from live.turbine_silver_dlt sd
+from stream(live.turbine_silver_dlt) sd
 group by id, record_date, record_year
 
 -- COMMAND ----------
 
-create live table turbine_gold_sensor_dlt(
+create live table turbine_gold_sensor_dlt1(
   constraint valid_id expect (id is not null) on violation drop row 
 )
 tblproperties (

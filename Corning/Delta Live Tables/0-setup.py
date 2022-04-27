@@ -27,7 +27,7 @@ dbutils.widgets.text("dbName", dbName, "dbName")
 print(f"path (default path): {path}")
 spark.sql(f"create database if not exists {dbName} LOCATION '{path}/global_demo/tables'")
 spark.sql(f"USE {dbName}")
-print("dbName (using database): {dbName}")
+print(f"dbName (using database): {dbName}")
 
 # COMMAND ----------
 
@@ -49,9 +49,10 @@ display(dbutils.fs.ls('dbfs:/mnt/rb-demo-resources/turbine/incoming-data-json'))
 
 # COMMAND ----------
 
+import json 
+
 data = json.loads('{"ID":162.0,"AN3":-0.25877,"AN4":2.3713,"AN5":-1.1298,"AN6":1.5778,"AN7":-3.7185,"AN8":5.5253,"AN9":2.8008,"AN10":-1.5991,"SPEED":6.3287E-4,"TORQUE":"","TIMESTAMP":"2020-05-27T08:27:20.000Z"}')
 
-import json 
 print(json.dumps(data, indent = 4))
 
 # COMMAND ----------
